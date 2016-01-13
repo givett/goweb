@@ -25,6 +25,7 @@ var _ = Describe("Main", func() {
 		It("Should return contents of form_data.json file.", func() {
 
 			w = `"isbn": "978-1505255607",  "title": "The Time Machine",  "author": "H. G. Wells",  "price": 6.99"`
+			Expect(w).To(Equal(`"isbn": "978-1505255607",  "title": "The Time Machine",  "author": "H. G. Wells",  "price": 6.99"`))
 
 		})
 
