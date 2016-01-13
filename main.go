@@ -15,7 +15,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if r.Method == "GET" {
-		fmt.Fprintf(w, "GET, %q", html.EscapeString(r.URL.Path))
+		//fmt.Fprintf(w, "GET, %q", html.EscapeString(r.URL.Path))
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("Hello World!"))
 	} else if r.Method == "POST" {
 		fmt.Fprintf(w, "POST, %q", html.EscapeString(r.URL.Path))
 
@@ -70,4 +72,7 @@ func main() {
 	fmt.Print("Listening on http://localhost:8080/")
 	http.ListenAndServe(":8080", nil)
 	// curl -X POST -d "{\"test\": \"that\"}" http://localhost:8080
+	// curl -X POST -d @form_data.json http://localhost:8080 -v
+	// curl localhost:8080 -X GET
+	// curl :8080 -X POST -d @form_data.json
 }

@@ -9,5 +9,5 @@ import (
 
 func TestWeb(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Web Suite")
+	RunSpecs(t, "Main Suite")
 }

@@ -1,10 +1,10 @@
 package main_test
 
 import (
-	. "web"
+	//. "main"
 
 	. "github.com/onsi/ginkgo"
-	. "github.com/onsi/gomega"
+	//. "github.com/onsi/gomega"
 )
 
 var _ = Describe("Web", func() {
