@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func Handler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
 		return
@@ -39,7 +39,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/", Handler)
 	fmt.Print("Listening on http://localhost:8080/")
 	http.ListenAndServe(":8080", nil)
 	// curl -X POST -d "{\"test\": \"that\"}" http://localhost:8080
