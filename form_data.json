@@ -1,6 +1,12 @@
-{
+[{
   "isbn": "978-1505255607",
   "title": "The Time Machine",
   "author": "H. G. Wells",
   "price": 6.99
-}
+},
+{
+  "isbn": "979-1505255608",
+  "title": "The Time Machine 2",
+  "author": "H. G. Wells Jr.",
+  "price": 7.99
+}]

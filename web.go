@@ -8,6 +8,15 @@ import (
 	"net/http"
 )
 
+// Book comment
+type Book struct {
+	Isbn   string  `json:"isbn"`
+	Title  string  `json:"title"`
+	Author string  `json:"author"`
+	Price  float64 `json:"price"`
+}
+
+// Handler comment
 func Handler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
@@ -18,6 +27,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		//fmt.Fprintf(w, "GET, %q", html.EscapeString(r.URL.Path))
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte("Hello World!"))
+
 	} else if r.Method == "POST" {
 		fmt.Fprintf(w, "POST, %q", html.EscapeString(r.URL.Path))
 
@@ -26,12 +36,14 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprintf(w, "Error reading app request, %v", rBody)
 		}
 
-		err = json.Unmarshal(rBody, r.Body)
+		var book Book
+
+		err = json.Unmarshal(rBody, &book)
 		if err != nil {
 			fmt.Fprintf(w, "Error unmarshaling app %v", err)
 		}
 
-		fmt.Fprintf(w, "rBody is, %s", rBody)
+		fmt.Fprintf(w, "title is %s", book.Title)
 
 	} else {
 		http.Error(w, "Invalid request method.", 405)
